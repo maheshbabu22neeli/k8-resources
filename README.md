@@ -2,6 +2,8 @@
 Learning kubernetes resources
 
 
+![k8-workstation-flow.drawio.svg](images/k8-workstation-flow.drawio.svg)
+
 ## Launch EC2 Instance(k8-workstation)
 Launch EC2 instance with volume size 50 GB
 
