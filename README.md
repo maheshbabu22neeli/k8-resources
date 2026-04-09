@@ -7,7 +7,7 @@ Learning kubernetes resources
 ## Launch EC2 Instance(k8-workstation)
 Launch EC2 instance with volume size 50 GB
 
-##  Extend the disk
+##  Extend disk
 - To utilise maximum performance
 ```shell
 sudo growpart /dev/nvme0n1 4
