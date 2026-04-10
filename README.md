@@ -201,6 +201,18 @@ spec:
       value: dev
       
 kubectl apply -f 06-env.yaml
+kubectl get pods -n roboshop
+kubectl exec -it pod-env -n roboshop -- bash
+root@pod-env:/# env
+project=roboshop
+HOSTNAME=pod-env
+PWD=/
+HOME=/root
+environment=dev
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+component=frontend
+_=/usr/bin/env
 
+kubectl delete -f 06-env.yaml
 ```
 
