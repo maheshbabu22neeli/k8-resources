@@ -259,5 +259,6 @@ spec:
         name: nginx-configmap
         
 kubectl apply -f 07-pod-configmap.yaml
-
+kubectl get pods -n roboshop
+kubectl exec -it pod-configmap-test -n roboshop -- bash
 ````
