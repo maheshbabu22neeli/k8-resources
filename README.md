@@ -106,6 +106,10 @@ kubectl delete -f 01-namespace.yaml
 - POD is smallest deployable unit in kubernetes
 - A POD can have multiple containers in it.
 ```shell
+kubectl get pods -n roboshop
+kubectl describe pod nginx -n roboshop
+kubectl get pods -o wide -n roboshop
+kubectl get pod nginx -o wide -n roboshop
 
 ```
 
