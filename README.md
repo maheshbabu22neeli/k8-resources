@@ -113,6 +113,11 @@ kubectl describe pod nginx -n roboshop
 kubectl get pods -o wide -n roboshop
 kubectl get pod nginx -o wide -n roboshop
 kubectl delete -f 02-pod.yaml
+kubectl exec -it nginx -n roboshop -- bash
+
+kubectl exec -it multi-container -c nginx -n roboshop -- bash   (on multi containers)
+kubectl exec -it multi-container -c almalinux -n roboshop -- bash   (on multi containers)
+
 ```
 
 
