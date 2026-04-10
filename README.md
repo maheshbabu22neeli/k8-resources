@@ -246,9 +246,10 @@ project:
 ----
 roboshop
 
+````
+```shell
+How to Test the confimap by attaching to POD, refer 07-pod-configmap.yaml
 
-Test: (refer 07-pod-configmap.yaml)
-====
 spec:
   containers:
   - name: nginx
@@ -256,4 +257,7 @@ spec:
     envFrom:
     - configMapRef:
         name: nginx-configmap
+        
+kubectl apply -f 07-pod-configmap.yaml
+
 ````
