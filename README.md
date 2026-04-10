@@ -106,6 +106,8 @@ kubectl delete -f 01-namespace.yaml
 - POD is smallest deployable unit in kubernetes
 - A POD can have multiple containers in it.
 - Each container in POD share same OS and network
+- Multi containers are used mainly to push the logs from the same storage/network to ELK
+- The extra container is called side-car container
 ```shell
 kubectl apply -f 02-pod.yaml
 kubectl get pods -n roboshop
@@ -120,6 +122,11 @@ kubectl exec -it multi-container -c almalinux -n roboshop -- bash   (on multi co
 
 ```
 
+## Labels
+- Labels add metadata to the resource
+- Labels are used as selectors in kubernetes
+```shell
 
+```
 
 
