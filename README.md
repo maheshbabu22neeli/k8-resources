@@ -74,6 +74,30 @@ aws configure
 - You can find the code in `https://github.com/maheshbabu22neeli/k8-eksctl`
 
 
+## Namespace
+- K8 is PaaS
+- It is an isolated space inside k8-cluster, where we can create our project related resources. We can completely control them. 
+- It is like our project inside k8s.
+- whatever the manifest file, we see `kind` and `apiVersion`. 
+- `kind` tells what resource we are going to build
+- `apiVersion` tells what version we are about to give. 
+```shell
+[ ec2-user@ip-172-31-19-208 ~/k8-eksctl ]$ kubectl get namespace
+NAME              STATUS   AGE
+default           Active   13m
+kube-node-lease   Active   13m
+kube-public       Active   13m
+kube-system       Active   13m
+
+
+We can create our own namespace
+[ ec2-user@ip-172-31-19-208 ~/k8-eksctl ]$ kubectl create namespace roboshop
+
+We can delete using 
+[ ec2-user@ip-172-31-19-208 ~/k8-eksctl ]$ kubectl delete namespace roboshop
+
+```
+
 
 
 
