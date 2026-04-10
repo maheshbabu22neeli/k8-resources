@@ -119,14 +119,34 @@ kubectl exec -it nginx -n roboshop -- bash
 
 kubectl exec -it multi-container -c nginx -n roboshop -- bash   (on multi containers)
 kubectl exec -it multi-container -c almalinux -n roboshop -- bash   (on multi containers)
-
 ```
 
 ## Labels
 - Labels add metadata to the resource
 - Labels are used as selectors in kubernetes
+- Special characters are not allowed in labels
+- Labels are to select internal services
 ```shell
-
+kubectl apply -f 03-labels.yaml
+kubectl describe pod pod-labels -n roboshop
+kubectl delete -f 03-labels.yaml
 ```
 
+## Annotations
+- Annotations are similar like labels add metadata, but annotations are used to select external resources like load-balancers.
+- Where labels have limitations in key value length and size, whereas in annotations no such limit
+- Annotations are used to select external services
+```shell
+kubectl apply -f 04-annotations.yaml
+kubectl describe pod pod-annotations -n roboshop
+kubectl delete -f 04-annotations.yaml
+```
+
+## Resources
+- In Kubernetes, containers are free to use the required resources like memory
+- Memory will increase or decrease based on usage, but this might be a good practice we need to restrict the resources.
+- When the utility is more, we have to achieve by using auto-scaling.
+````shell
+
+````
 

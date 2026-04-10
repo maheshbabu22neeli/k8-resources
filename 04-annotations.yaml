@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-annotations
+  namespace: roboshop
+  labels:
+    project: roboshop
+    environment: dev
+    component: frontend
+  annotations:
+    imageregistry: "https://hub.docker.com/"
+    jenkinsUrl: "https://jenkins.mahesh.neeli-dev/build/job/roboshop"
+
+spec:
+  containers:
+  - name: nginx
+    image: nginx
