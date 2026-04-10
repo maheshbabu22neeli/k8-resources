@@ -96,6 +96,17 @@ We can create our own namespace
 We can delete using 
 [ ec2-user@ip-172-31-19-208 ~/k8-eksctl ]$ kubectl delete namespace roboshop
 
+We can create using yaml file as well (we genuinely use this yamls files for k8 resource creations)
+kubectl apply -f 01-namespace.yaml
+kubectl describe ns roboshop
+kubectl delete -f 01-namespace.yaml
+```
+
+## POD
+- POD is smallest deployable unit in kubernetes
+- A POD can have multiple containers in it.
+```shell
+
 ```
 
 
