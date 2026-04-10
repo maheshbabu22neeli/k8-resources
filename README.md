@@ -216,3 +216,6 @@ _=/usr/bin/env
 kubectl delete -f 06-env.yaml
 ```
 
+## Config-Map
+- For simple two to three key value pairs we can use ENV, but what if we have 100 key value pairs.
+- This can be resolved by Config-Map and attach that to POD.
