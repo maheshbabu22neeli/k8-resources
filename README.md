@@ -147,6 +147,8 @@ kubectl delete -f 04-annotations.yaml
 - Memory will increase or decrease based on usage, but this might be a good practice we need to restrict the resources.
 - When the utility is more, we have to achieve by using auto-scaling.
 ````shell
+kubectl apply -f 05-resources.yaml
+kubectl describe pod resources -n roboshop
 spec:
   containers:
   - name: nginx
@@ -161,5 +163,44 @@ spec:
       limits:
         memory: "128Mi"  # RAM
         cpu: "150m"
+        
+$ kubectl describe pod resources -n roboshop
+Name:             resources
+------
+------
+------
+------
+Containers:
+  nginx:
+    Container ID:   containerd://a9bea7dd58c2b163708
+    Image:          nginx
+    Restart Count:  0
+    Limits:
+      cpu:     150m
+      memory:  128Mi
+    Requests:
+      cpu:        100m
+      memory:     64Mi
+
+kubectl delete -f 05-resources.yaml
 ````
+
+## ENV
+- Environment variables are useful for pods
+```shell
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+    - name: project
+      value: roboshop
+    - name: component
+      value: frontend
+    - name: environment
+      value: dev
+      
+kubectl apply -f 06-env.yaml
+
+```
 
