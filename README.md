@@ -219,3 +219,41 @@ kubectl delete -f 06-env.yaml
 ## Config-Map
 - For simple two to three key value pairs we can use ENV, but what if we have 100 key value pairs.
 - This can be resolved by Config-Map and attach that to POD.
+````shell
+kubectl apply -f 07-configmap.yaml
+$ kubectl get cm
+NAME               DATA   AGE
+kube-root-ca.crt   1      131m
+nginx-configmap    3      8s
+
+$ kubectl describe cm nginx-configmap
+Name:         nginx-configmap
+Namespace:    default
+Labels:       <none>
+Annotations:  <none>
+
+Data
+====
+course:
+----
+kubernetes
+
+environment:
+----
+dev
+
+project:
+----
+roboshop
+
+
+Test: (refer 07-pod-configmap.yaml)
+====
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    envFrom:
+    - configMapRef:
+        name: nginx-configmap
+````
