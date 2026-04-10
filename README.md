@@ -147,6 +147,19 @@ kubectl delete -f 04-annotations.yaml
 - Memory will increase or decrease based on usage, but this might be a good practice we need to restrict the resources.
 - When the utility is more, we have to achieve by using auto-scaling.
 ````shell
-
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    resources:
+      # this is minimum resource, soft limit
+      requests:
+        memory: "64Mi"  # RAM
+        cpu: "100m"
+        
+      # this is maximum resource, hard limit
+      limits:
+        memory: "128Mi"  # RAM
+        cpu: "150m"
 ````
 
