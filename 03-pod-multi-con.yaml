@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   name: multi-container
   namespace: roboshop
+
 spec:
   containers:
   - name: nginx

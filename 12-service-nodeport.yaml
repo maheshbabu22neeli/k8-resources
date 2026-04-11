@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: nginx-service
   namespace: roboshop
+
 spec:
   type: NodePort
   selector:

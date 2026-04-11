@@ -9,6 +9,7 @@ kind: Pod
 metadata:
   name: service-test
   namespace: roboshop
+
 spec:
   containers:
     - name: almalinux

@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: nginx-service
   namespace: roboshop
+
 spec:
   selector:
     # selecting labels(04-labels) pod to this service
