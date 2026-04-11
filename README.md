@@ -363,6 +363,7 @@ nginx-service   NodePort   10.100.16.90   <none>        80:30303/TCP   47s
 - Exposing an IP address is a security threat.
 - This can avoid by using Load balancer to access our application.
 - This creates the load-balancer and adds EC2 NodeGroups as a target instances.
+- This adds the load-balancer SG to EC2 NodeGroups SG's to allow the traffic
 - Take DNS(Details Tab) from the load balancer and access through browser `http://a994af23a3a8-1766.us-east-1.elb.amazonaws.com/.
 - NodePort is a subset of LoadBalancer
 ```shell
