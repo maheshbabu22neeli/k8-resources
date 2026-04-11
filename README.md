@@ -127,9 +127,9 @@ kubectl exec -it multi-container -c almalinux -n roboshop -- bash   (on multi co
 - Special characters are not allowed in labels
 - Labels are to select internal services
 ```shell
-kubectl apply -f 03-labels.yaml
+kubectl apply -f 04-labels.yaml
 kubectl describe pod pod-labels -n roboshop
-kubectl delete -f 03-labels.yaml
+kubectl delete -f 04-labels.yaml
 ```
 
 ## Annotations
@@ -137,9 +137,9 @@ kubectl delete -f 03-labels.yaml
 - Where labels have limitations in key value length and size, whereas in annotations no such limit
 - Annotations are used to select external services
 ```shell
-kubectl apply -f 04-annotations.yaml
+kubectl apply -f 05-annotations.yaml
 kubectl describe pod pod-annotations -n roboshop
-kubectl delete -f 04-annotations.yaml
+kubectl delete -f 05-annotations.yaml
 ```
 
 ## Resources
@@ -147,7 +147,7 @@ kubectl delete -f 04-annotations.yaml
 - Memory will increase or decrease based on usage, but this might be a good practice we need to restrict the resources.
 - When the utility is more, we have to achieve by using auto-scaling.
 ````shell
-kubectl apply -f 05-resources.yaml
+kubectl apply -f 06-resources.yaml
 kubectl describe pod resources -n roboshop
 spec:
   containers:
@@ -182,7 +182,7 @@ Containers:
       cpu:        100m
       memory:     64Mi
 
-kubectl delete -f 05-resources.yaml
+kubectl delete -f 06-resources.yaml
 ````
 
 ## ENV
@@ -200,7 +200,7 @@ spec:
     - name: environment
       value: dev
       
-kubectl apply -f 06-env.yaml
+kubectl apply -f 07-env.yaml
 kubectl get pods -n roboshop
 kubectl exec -it pod-env -n roboshop -- bash
 root@pod-env:/# env
@@ -213,14 +213,14 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 component=frontend
 _=/usr/bin/env
 
-kubectl delete -f 06-env.yaml
+kubectl delete -f 07-env.yaml
 ```
 
 ## Config-Map
 - For simple two to three key value pairs we can use ENV, but what if we have 100 key value pairs.
 - This can be resolved by Config-Map and attach that to POD.
 ````shell
-kubectl apply -f 07-configmap.yaml
+kubectl apply -f 08-configmap.yaml
 $ kubectl get cm
 NAME               DATA   AGE
 kube-root-ca.crt   1      131m
@@ -248,7 +248,7 @@ roboshop
 
 ````
 ```shell
-How to Test the confimap by attaching to POD, refer 07-pod-configmap.yaml
+How to Test the confimap by attaching to POD, refer 09-pod-configmap.yaml
 
 spec:
   containers:
@@ -258,7 +258,7 @@ spec:
     - configMapRef:
         name: nginx-configmap
         
-kubectl apply -f 07-pod-configmap.yaml
+kubectl apply -f 09-pod-configmap.yaml
 kubectl get pods -n roboshop
 kubectl exec -it pod-configmap-test -n roboshop -- bash
 ````
