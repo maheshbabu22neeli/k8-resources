@@ -1,0 +1,16 @@
+# Main aim of this pod to communicate with labels pod.
+# This service-test pod assume as pod1
+# The pod-labels pod assume as pod2
+# Now, service-test pod wants to communicate with  pod-labels pod, this can happen through service(nginx-service)
+# service-test -> nginx-service -> pod-labels
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: service-test
+  namespace: roboshop
+spec:
+  containers:
+    - name: almalinux
+      image: almalinux
+      command: ["sleep", "1000"]

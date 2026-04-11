@@ -262,3 +262,17 @@ kubectl apply -f 09-pod-configmap.yaml
 kubectl get pods -n roboshop
 kubectl exec -it pod-configmap-test -n roboshop -- bash
 ````
+
+
+## Service
+- If we want POD to POD communication, IP address of POD's are not useful as they are ephemeral (temporary).
+- We have to use k8 services to achieve pod to pod communication.
+- Load-balancing can also be achieved through services
+- If pod1 wants to communicate with pod2 it goes via service. ex: pod1 -> service -> pod2
+- Service Types
+  - Cluster IP
+  - NodePort
+  - Load balancer
+
+### Cluster IP
+- 
