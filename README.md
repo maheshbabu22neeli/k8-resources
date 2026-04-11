@@ -275,4 +275,17 @@ kubectl exec -it pod-configmap-test -n roboshop -- bash
   - Load balancer
 
 ### Cluster IP
-- 
+
+```shell
+kubectl apply -f 01-namespace.yaml
+kubectl apply -f 04-labels.yaml
+kubectl apply -f 10-service.yaml
+kubectl apply -f 11-service-test.yaml
+
+~/k8-resources ]$ kubectl get pods -n roboshop
+NAME           READY   STATUS    RESTARTS   AGE
+pod-labels     1/1     Running   0          30s
+service-test   1/1     Running   0          13s
+
+
+```
