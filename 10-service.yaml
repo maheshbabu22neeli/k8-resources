@@ -5,7 +5,7 @@ metadata:
   namespace: roboshop
 spec:
   selector:
-    # tagging the labels(04-labels) pod to this service
+    # selecting labels(04-labels) pod to this service
     project: roboshop
     environment: dev
     component: frontend
