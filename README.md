@@ -359,6 +359,7 @@ nginx-service   NodePort   10.100.16.90   <none>        80:30303/TCP   47s
 - Browser -> NodePort Service -> Labels POD
 
 ### Load Balancer
+![Loadbalancer_Service.drawio.svg](images/Loadbalancer_Service.drawio.svg)
 - Exposing an IP address to access our application using NodePort service is not safe.
 - Exposing an IP address is a security threat.
 - This can avoid by using Load balancer to access our application.
