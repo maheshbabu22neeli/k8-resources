@@ -280,6 +280,24 @@ kubectl exec -it pod-configmap-test -n roboshop -- bash
 kubectl apply -f 01-namespace.yaml
 kubectl apply -f 04-labels.yaml
 kubectl apply -f 10-service.yaml
+$ kubectl describe svc nginx-service -n roboshop
+Name:                     nginx-service
+Namespace:                roboshop
+Labels:                   <none>
+Annotations:              <none>
+Selector:                 component=frontend,environment=dev,project=roboshop
+Type:                     ClusterIP
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.100.234.214
+IPs:                      10.100.234.214
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+Endpoints:                192.168.58.161:80
+Session Affinity:         None
+Internal Traffic Policy:  Cluster
+Events:                   <none>
+
 kubectl apply -f 11-service-test.yaml
 
 ~/k8-resources ]$ kubectl get pods -n roboshop
@@ -287,5 +305,34 @@ NAME           READY   STATUS    RESTARTS   AGE
 pod-labels     1/1     Running   0          30s
 service-test   1/1     Running   0          13s
 
+$ kubectl exec -it service-test -n roboshop -- bash
+[root@service-test /]# curl nginx-service
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, nginx is successfully installed and working.
+Further configuration is required for the web server, reverse proxy,
+API gateway, load balancer, content cache, or other features.</p>
 
+<p>For online documentation and support please refer to
+<a href="https://nginx.org/">nginx.org</a>.<br/>
+To engage with the community please visit
+<a href="https://community.nginx.org/">community.nginx.org</a>.<br/>
+For enterprise grade support, professional services, additional
+security features and capabilities please refer to
+<a href="https://f5.com/nginx">f5.com/nginx</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+[root@service-test /]#
 ```
