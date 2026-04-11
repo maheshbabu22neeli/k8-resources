@@ -270,12 +270,12 @@ kubectl exec -it pod-configmap-test -n roboshop -- bash
 - Load-balancing can also be achieved through services
 - If pod1 wants to communicate with pod2 it goes via service. ex: pod1 -> service -> pod2
 - Service Types
-  - Cluster IP
+  - Cluster IP (by default)
   - NodePort
   - Load balancer
 
 ### Cluster IP
-
+- Cluster IP is for the pod's to communicate internally with in the cluster
 ```shell
 kubectl apply -f 01-namespace.yaml
 kubectl apply -f 04-labels.yaml
@@ -336,3 +336,8 @@ security features and capabilities please refer to
 </html>
 [root@service-test /]#
 ```
+
+### Node Port
+- Node Port is to communicate external with the cluster
+- Which means an external user want to communicate with our application.
+- 

@@ -4,6 +4,7 @@ metadata:
   name: nginx-service
   namespace: roboshop
 spec:
+  type: NodePort
   selector:
     # selecting labels(04-labels) pod to this service
     project: roboshop
