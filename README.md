@@ -344,6 +344,7 @@ security features and capabilities please refer to
 
 - Node Port is to communicate external with the cluster
 - Which means an external user want to communicate with our application.
+- ClusterIP is a subset of NodePort
 
 ````shell
 kubectl apply -f 04-labels.yaml
@@ -356,3 +357,12 @@ nginx-service   NodePort   10.100.16.90   <none>        80:30303/TCP   47s
 - Now open 0.0.0.0/0 for 30303 port to one of the NodeGroup instances (EC2)
 - Take the public IP of the NodeGroup instance and open in browser `http://54.227.110.173:30303/`
 - Browser -> NodePort Service -> Labels POD
+
+### Load Balancer
+- Exposing an IP address to access our application using NodePort service is not safe.
+- Exposing an IP address is a security threat.
+- This can avoid by using Load balancer to access our application.
+- NodePort is a subset of LoadBalancer
+```shell
+
+```
