@@ -275,6 +275,7 @@ kubectl exec -it pod-configmap-test -n roboshop -- bash
   - Load balancer
 
 ### Cluster IP
+![ClusterIP_Service.drawio.svg](images/ClusterIP_Service.drawio.svg)
 - Cluster IP is for the pod's to communicate internally with in the cluster
 ```shell
 kubectl apply -f 01-namespace.yaml
@@ -338,6 +339,20 @@ security features and capabilities please refer to
 ```
 
 ### Node Port
+
+![NodePort_Service.drawio.svg](images/NodePort_Service.drawio.svg)
+
 - Node Port is to communicate external with the cluster
 - Which means an external user want to communicate with our application.
-- 
+
+````shell
+kubectl apply -f 04-labels.yaml
+kubectl apply -f 12-service-nodeport.yaml
+
+kubectl get svc -n roboshop
+NAME            TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+nginx-service   NodePort   10.100.16.90   <none>        80:30303/TCP   47s
+````
+- Now open 0.0.0.0/0 for 30303 port to one of the NodeGroup instances (EC2)
+- Take the public IP of the NodeGroup instance and open in browser `http://54.227.110.173:30303/`
+- Browser -> NodePort Service -> Labels POD
