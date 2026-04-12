@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: nginx
   namespace: roboshop
+  annotations:
+    kubernetes.io/change-cause: "Updated image to nginx:alpine3.23"
   labels:
     project: rosboshop
     tier: frontend

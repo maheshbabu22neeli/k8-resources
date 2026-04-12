@@ -452,4 +452,29 @@ NAME                     READY   STATUS    RESTARTS   AGE
 nginx-74b96d5c65-4gg7j   1/1     Running   0          70s
 nginx-74b96d5c65-mmc54   1/1     Running   0          65s
 nginx-74b96d5c65-wtb46   1/1     Running   0          67s
+
+
+Assume, in our new deployment we found that a bug and application is not working as expected.
+In this case, we need to rollback the application to old version. 
+And this can be easy in kubernetes using below command
+
+$ kubectl rollout history deployment/nginx -n roboshop
+deployment.apps/nginx
+REVISION  CHANGE-CAUSE
+1         <none>
+2         <none>
+
+We found two revisions.
+
+$ kubectl rollout undo deployment/nginx -n roboshop
+deployment.apps/nginx rolled back
+
+$ kubectl get pods -n roboshop
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx-5bd7bc7c5b-89lj8   1/1     Running   0          11s
+nginx-5bd7bc7c5b-mvqt2   1/1     Running   0          14s
+nginx-5bd7bc7c5b-vfkxv   1/1     Running   0          17s
+
+We have previous version pods
+
 ```
