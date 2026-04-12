@@ -387,4 +387,15 @@ In Sets, we have
 ### ReplicaSet
 - Replica Set will create multiple replicas of the pod.
 - It always runs the desired number of pod's
-- 
+- Even if we delete any one pod from the desired number of pod's using `kubectl delete pod <pod-name> - n roboshop`, it automatically creates the other pod to match the replica set.
+- Every time replicaset make sure that desired number of pods are running.
+```shell
+kubectl apply -f 14-replicaset.yaml
+
+$ kubectl get pods -n roboshop
+NAME          READY   STATUS    RESTARTS   AGE
+nginx-8m8x8   1/1     Running   0          10s
+nginx-fb7cm   1/1     Running   0          10s
+nginx-z6s7l   1/1     Running   0          10s
+
+```
