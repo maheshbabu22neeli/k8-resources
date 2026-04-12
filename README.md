@@ -412,8 +412,10 @@ nginx-z6s7l   1/1     Running   0          10s
 - Deployments as a mechanism to orchestrate Pod creation, deletion and updates
 - Using deployment, we can update the pod to new version without deleting the existing resources(old replica-set / old pods)
 - We can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments
+
 - Pod is subset of replica-set
 - Replica-Set is a subset of deployment
+
 ```shell
 kubectl apply -f 15-deploymentset.yaml
 
@@ -462,7 +464,7 @@ $ kubectl rollout history deployment/nginx -n roboshop
 deployment.apps/nginx
 REVISION  CHANGE-CAUSE
 1         <none>
-2         <none>
+2         Updated image to nginx:alpine3.23
 
 We found two revisions.
 
@@ -475,6 +477,5 @@ nginx-5bd7bc7c5b-89lj8   1/1     Running   0          11s
 nginx-5bd7bc7c5b-mvqt2   1/1     Running   0          14s
 nginx-5bd7bc7c5b-vfkxv   1/1     Running   0          17s
 
-We have previous version pods
-
+We have previous version pods and rollout successfully
 ```
