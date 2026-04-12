@@ -413,8 +413,10 @@ nginx-z6s7l   1/1     Running   0          10s
 - Using deployment, we can update the pod to new version without deleting the existing resources(old replica-set / old pods)
 - We can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments
 
+- Container is a subset of Pod
 - Pod is subset of replica-set
 - Replica-Set is a subset of deployment
+- 
 
 ```shell
 kubectl apply -f 15-deploymentset.yaml
