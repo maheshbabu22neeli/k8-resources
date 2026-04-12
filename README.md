@@ -430,4 +430,26 @@ NAME                     READY   STATUS    RESTARTS   AGE
 nginx-5bd7bc7c5b-66d7w   1/1     Running   0          99s
 nginx-5bd7bc7c5b-dmlcl   1/1     Running   0          99s
 nginx-5bd7bc7c5b-sp98s   1/1     Running   0          99s
+
+After image version updated.
+
+    spec:
+      containers:
+        - name: nginx
+          #image: nginx
+          # Updating to a new image or new version
+          image: nginx:alpine3.23
+          
+Replica-Set Updated
+$ kubectl get rs -n roboshop
+NAME               DESIRED   CURRENT   READY   AGE
+nginx-5bd7bc7c5b   0         0         0       6m15s
+nginx-74b96d5c65   3         3         3       22s
+
+Pods updated, which means new version deployed automatically by removing the old version pods.
+$ kubectl get pods -n roboshop
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx-74b96d5c65-4gg7j   1/1     Running   0          70s
+nginx-74b96d5c65-mmc54   1/1     Running   0          65s
+nginx-74b96d5c65-wtb46   1/1     Running   0          67s
 ```
