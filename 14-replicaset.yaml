@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  namespace: roboshop
+  labels:
+    project: rosboshop
+    tier: frontend
+    component: frontend
+    purpose: replica-set-demo
+
+spec:
+  replicas: 3
+  selector:
+    # This match labels will go and find the pods who contain these labels
+    matchLabels:
+      project: rosboshop
+      tier: frontend
+      component: frontend
+
+  # This is a POD definition/template (pod is a subset of replica-set)
+  template:
+    metadata:
+      # POD Labels, these labels will refer in replica-set selector
+      labels:
+        project: rosboshop
+        tier: frontend
+        component: frontend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx

@@ -376,3 +376,15 @@ nginx-service   LoadBalancer   10.100.85.187   a994af23a3a8-1766.us-east-1.elb.a
 
 kubectl delete -f 13-service-loadbalancer.yaml
 ```
+
+## Sets
+In Sets, we have 
+1. Replica Set
+2. Deployment Set
+3. Daemon Set
+4. StatefulSet
+
+### ReplicaSet
+- Replica Set will create multiple replicas of the pod.
+- It always runs the desired number of pod's
+- 
