@@ -392,10 +392,28 @@ In Sets, we have
 ```shell
 kubectl apply -f 14-replicaset.yaml
 
+kubectl get rs -n roboshop
+
 $ kubectl get pods -n roboshop
 NAME          READY   STATUS    RESTARTS   AGE
 nginx-8m8x8   1/1     Running   0          10s
 nginx-fb7cm   1/1     Running   0          10s
 nginx-z6s7l   1/1     Running   0          10s
+
+```
+
+### DeploymentSet
+- In replica set if we want to upgrade the image version, it unable to update and not able to create a new pod. 
+- The only job of replica-set is to maintain the desired number of pods.
+
+- In Deployment, We can own replica-set and pods creation
+- In Deployment, you don't have to worry about managing the ReplicaSets
+- It is recommended to use Deployments when you want ReplicaSets
+- Deployments as a mechanism to orchestrate Pod creation, deletion and updates
+- Using deployment, we can update the pod to new version without deleting the existing resources(old replica-set / old pods)
+- We can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments
+- Pod is subset of replica-set
+- Replica-Set is a subset of deployment
+```shell
 
 ```
