@@ -415,5 +415,19 @@ nginx-z6s7l   1/1     Running   0          10s
 - Pod is subset of replica-set
 - Replica-Set is a subset of deployment
 ```shell
+kubectl apply -f 15-deploymentset.yaml
 
+$ kubectl get deployment -n roboshop
+NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+nginx   3/3     3            3           60s
+
+$ kubectl get rs -n roboshop
+NAME               DESIRED   CURRENT   READY   AGE
+nginx-5bd7bc7c5b   3         3         3       22s
+
+$ kubectl get pods -n roboshop
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx-5bd7bc7c5b-66d7w   1/1     Running   0          99s
+nginx-5bd7bc7c5b-dmlcl   1/1     Running   0          99s
+nginx-5bd7bc7c5b-sp98s   1/1     Running   0          99s
 ```
