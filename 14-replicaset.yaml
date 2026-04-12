@@ -29,6 +29,4 @@ spec:
     spec:
       containers:
         - name: nginx
-          #image: nginx
-          # Updating to a new image or new version
-          image: nginx:alpine3.23
+          image: nginx
