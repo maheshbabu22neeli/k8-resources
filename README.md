@@ -73,6 +73,12 @@ aws configure
 - Using eks-ctl we can install EKS Cluster
 - You can find the code in `https://github.com/maheshbabu22neeli/k8-eksctl`
 
+## Install K9S 
+```shell
+
+curl -sS https://webinstall.dev/k9s | bash
+
+```
 
 ## Namespace
 - K8 is PaaS
@@ -99,6 +105,9 @@ We can delete using
 We can create using yaml file as well (we genuinely use this yamls files for k8 resource creations)
 kubectl apply -f 01-namespace.yaml
 kubectl describe ns roboshop
+
+kubectl config set-context --current --namespace=roboshop
+
 kubectl delete -f 01-namespace.yaml
 ```
 
